@@ -1,0 +1,84 @@
+ChatCompletion(id='chatcmpl-9Tkc9s0cB4rCTaWmMLfOm57d0wdQJ', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='Certainly! To achieve the modification you requested, we\'ll focus on extracting only the tables from the webpage and maintaining their formatting. We\'ll also need to amend the writing process to keep the integrity of the table formatting. Additionally, instead of writing the data to a CSV file, which might not preserve complex table formatting, we\'ll save it to an HTML file.\n\nHere\'s the amended code:\n\n```python\nfrom bs4 import BeautifulSoup\nimport requests\n\ndef get_tables(url):\n    """\n    This function takes a URL as input and returns a list of tables found on the webpage.\n\n    Args:\n        url: The URL of the webpage to scrape.\n\n    Returns:\n        A list containing the HTML code of the table elements.\n    """\n\n    # Define headers to mimic a web browser\n    headers = {\n        \'User-Agent\': \'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0 Safari/537.36\'\n    }\n\n    try:\n        # Download the webpage content with headers\n        response = requests.get(url, headers=headers)\n        response.raise_for_status()  # Raise an exception for bad status codes\n\n        # Parse HTML content\n        soup = BeautifulSoup(response.content, \'html.parser\')\n\n        # Find all tables\n        tables = soup.find_all(\'table\')\n\n        # Extract table HTML code\n        table_html = [str(table) for table in tables]\n\n        return table_html\n\n    except requests.exceptions.RequestException as e:\n        print(f"An error occurred: {e}")\n        return []\n\ndef write_to_html(tables, filename):\n    """\n    This function takes a list of tables and writes them to an HTML file.\n\n    Args:\n        tables: A list of HTML table strings.\n        filename: The desired name for the output HTML file.\n    """\n    with open(filename, \'w\', encoding=\'utf-8\', errors=\'replace\') as htmlfile:\n        htmlfile.write(\'<html>\\n<body>\\n\')\n        htmlfile.write(\'<h1>These are all the Tables</h1>\\n\')\n        for table in tables:\n            htmlfile.write(table)\n            htmlfile.write(\'<br>\\n\')  # Add a line break between tables\n        htmlfile.write(\'</body>\\n</html>\')\n\n# Example usage\nurl = "https://finance.yahoo.com/quote/MPW/key-statistics/"\ntables = get_tables(url)\n\n# Write tables to HTML\nfilename = "fin_data.html"\nwrite_to_html(tables, filename)\n\nprint(f"Data scraped and written to {filename}")\nprint("Done!")\n```\n\n### Explanation:\n\n1. **Extracting Tables:**\n   - The `get_tables` function extracts only the tables from the given URL and returns them as a list of HTML strings.\n\n2. **Writing to HTML:**\n   - The `write_to_html` function writes these HTML strings to an HTML file, preserving the structure and formatting of the tables.\n   - The HTML file includes simple tags to denote the start and end of the HTML document and to insert breaks between the tables.\n\nBy switching to HTML format, you can ensure the table\'s formatting is preserved and can be easily viewed in a web browser.', role='assistant', function_call=None, tool_calls=None))], created=1716877725, model='gpt-4o-2024-05-13', object='chat.completion', system_fingerprint='fp_43dfabdef1', usage=CompletionUsage(completion_tokens=665, prompt_tokens=858, total_tokens=1523))Certainly!
+
+To achieve the modification you requested, we'll focus on extracting only the tables from the webpage and maintaining their formatting. We'll also need to amend the writing process to keep the integrity of the table formatting. Additionally, instead of writing the data to a CSV file, which might not preserve complex table formatting, we'll save it to an HTML file.
+
+Here's the amended code:
+
+```python
+from bs4 import BeautifulSoup
+import requests
+
+def get_tables(url):
+    """
+    This function takes a URL as input and returns a list of tables found on the webpage.
+
+    Args:
+        url: The URL of the webpage to scrape.
+
+    Returns:
+        A list containing the HTML code of the table elements.
+    """
+
+    # Define headers to mimic a web browser
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0 Safari/537.36'
+    }
+
+    try:
+        # Download the webpage content with headers
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()  # Raise an exception for bad status codes
+
+        # Parse HTML content
+        soup = BeautifulSoup(response.content, 'html.parser')
+
+        # Find all tables
+        tables = soup.find_all('table')
+
+        # Extract table HTML code
+        table_html = [str(table) for table in tables]
+
+        return table_html
+
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
+        return []
+
+def write_to_html(tables, filename):
+    """
+    This function takes a list of tables and writes them to an HTML file.
+
+    Args:
+        tables: A list of HTML table strings.
+        filename: The desired name for the output HTML file.
+    """
+    with open(filename, 'w', encoding='utf-8', errors='replace') as htmlfile:
+        htmlfile.write('<html>\n<body>\n')
+        htmlfile.write('<h1>These are all the Tables</h1>\n')
+        for table in tables:
+            htmlfile.write(table)
+            htmlfile.write('<br>\n')  # Add a line break between tables
+        htmlfile.write('</body>\n</html>')
+
+# Example usage
+url = "https://finance.yahoo.com/quote/MPW/key-statistics/"
+tables = get_tables(url)
+
+# Write tables to HTML
+filename = "fin_data.html"
+write_to_html(tables, filename)
+
+print(f"Data scraped and written to {filename}")
+print("Done!")
+```
+
+### Explanation:
+
+1. **Extracting Tables:**
+   - The `get_tables` function extracts only the tables from the given URL and returns them as a list of HTML strings.
+
+2. **Writing to HTML:**
+   - The `write_to_html` function writes these HTML strings to an HTML file, preserving the structure and formatting of the tables.
+   - The HTML file includes simple tags to denote the start and end of the HTML document and to insert breaks between the tables.
+
+By switching to HTML format, you can ensure the table's formatting is preserved and can be easily viewed in a web browser.

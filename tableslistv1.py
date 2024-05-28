@@ -47,7 +47,7 @@ def get_tables_and_lists(url):
         return [], []  # Return empty results in case of any errors
 
 # Example usage
-url = "https://finance.yahoo.com/quote/MPW/key-statistics/"  # Replace with the desired URL
+url = "URL"  # Replace with the desired URL
 tables, lists = get_tables_and_lists(url)
 
 # Print the extracted data

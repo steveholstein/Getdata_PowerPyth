@@ -56,7 +56,7 @@ def get_tables_and_lists(url):
         return [], []  # Return empty results in case of any errors
 
 # Example usage (replace with the desired URL)
-url = "https://finance.yahoo.com/quote/MPW/key-statistics/"
+url = "URL"
 tables, lists = get_tables_and_lists(url)  # Typo fixed here (lässt -> lists)
 
 # Print the extracted data

@@ -81,7 +81,7 @@ def write_to_csv(data, filename, include_header, encod):
             writer.writerow(row)
 
 # Example usage
-url = "https://finance.yahoo.com/quote/MPW/key-statistics/"
+url = "URL"
 tables, lists = get_tables_and_lists(url)
 
 # Prepare data (assuming tables is the data you want to export)

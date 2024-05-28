@@ -68,7 +68,7 @@ def write_to_excel(data, filename):
     wb.save(filename)
 
 # Example usage
-url = "https://finance.yahoo.com/quote/MPW/key-statistics/"
+url = "URL"
 tables = get_tables(url)
 
 # Write data to Excel file
