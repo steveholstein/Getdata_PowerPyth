@@ -1,0 +1,13 @@
+"can you fix thuis code 
+
+# Define the filename for the query text
+query_file = "queries.txt"
+
+# Open the query file in read mode ("r")
+with open(query_file2, "r") as query_file:
+    # Read the entire query text or specific lines (adjust as needed)
+    query_text = query_file.read().strip()  # Read entire file and strip whitespace
+
+
+
+"
