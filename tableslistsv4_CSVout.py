@@ -1,11 +1,6 @@
-"Question: Can you amend the code below to write
+#The provided code snippet looks almost complete! Here's the fixed version incorporating headers and addressing minor syntax errors:
 
-1. Just the tables, not the lists
-2. Maintain the integrity of the table formating
-3. You may need to amend the write file to a format other than CSV to achieve this. Can you use excel format please?
-4. You may need to amend the write file to a format other than CSV to achieve this. If you cannot use excel, please use a format than HTML
- 
-Code:
+
 from bs4 import BeautifulSoup
 import requests
 import csv
