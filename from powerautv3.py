@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from docx import Document
 from selenium.webdriver.common.by import By
+import openpyxl
 import time
 
 # Initialize Chrome with options, if needed
@@ -14,7 +15,7 @@ options = Options()
 driver = webdriver.Chrome(options=options)
 
 # Navigate to the Yahoo Finance IBM financials page
-driver.get("URL")
+driver.get("https://finance.yahoo.com/quote/IBM/financials")
 
 # Allow some time for the page to load
 time.sleep(5)
@@ -30,6 +31,20 @@ doc = Document()
 doc.add_paragraph(financial_data)
 doc.save('financial_data.docx')
 
-print("Text has been copied and saved to 'financial_data.docx'")
+# Create a new Excel workbook and add the extracted text
+wb = openpyxl.Workbook()
+ws = wb.active
+ws.title = "Financial Data"
+
+# Write the financial data to the Excel sheet, cell by cell
+for row_num, row_data in enumerate(financial_data.split('\n'), 1):
+    ws.cell(row=row_num, column=1, value=row_data)
+
+# Save the Excel workbook
+wb.save('financial_data.xlsx')
+
+print("Text has been copied and saved to 'financial_data.docx' and 'financial_data.xlsx'")
+
+# Note: you may need to install openpyxl using: pip install selenium python-docx openpyxl
 
 
