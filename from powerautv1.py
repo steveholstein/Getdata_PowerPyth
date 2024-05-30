@@ -24,12 +24,15 @@ driver.get("https://finance.yahoo.com/quote/IBM/financials")
 
 import pyautogui
 import time
+import os
+from docx import Document
+
 
 # Replace with the path to your Chrome WebDriver: perhaps not needed with Chrome 115 or later.
 #driver = webdriver.Chrome("C:\Users\hello\Documents\chromedriver-win64")
 
 # Navigate to the Yahoo Finance IBM financials page
-driver.get("https://finance.yahoo.com/quote/IBM/financials")
+driver.get("URL")
 
 # Click on the "Breakdown" section using XPath
 breakdown_button = WebDriverWait(driver, 10).until(
@@ -43,15 +46,28 @@ time.sleep(2)
 # Press Ctrl+C to copy the financials data (simulates keyboard shortcut)
 pyautogui.hotkey('ctrl', 'c')
 
-# Switch focus to the Word document (assuming the second window is Word)
-# Change the following line if Word has a different title or window position
+# Create a new Word document using `python-docx`
+doc = Document()
+doc.add_paragraph("Initial Data (This can be empty or custom text)")
+doc_path = "new_document.docx"
+doc.save(doc_path)
+
+# Launch the new document in Word
+os.startfile(doc_path)
+
+# Wait for Word to open
+time.sleep(5)  # Adjust if Word takes more or less time to open
+
+# Click on the Word window to bring it into focus
+# Coordinates can be adjusted according to your screen setup
 pyautogui.click(x=100, y=100)  # Replace with coordinates of your Word window
 
 # Wait for 2 seconds
 time.sleep(2)
 
-# Press Ctrl+V to paste the copied financials data
+# Press Ctrl+V to paste the copied financial data
 pyautogui.hotkey('ctrl', 'v')
+
 
 # Close the browser window
 driver.quit()
