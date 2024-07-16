@@ -14,8 +14,12 @@ options = Options()
 # Initialize the driver
 driver = webdriver.Chrome(options=options)
 
+urlinf = "https://finance.yahoo.com/quote/IBM/financials"
+urlinf = "https://www.asx.com.au/markets/company/BHP"
+
+
 # Navigate to the Yahoo Finance IBM financials page
-driver.get("https://finance.yahoo.com/quote/IBM/financials")
+driver.get(urlinf)
 
 # Allow some time for the page to load
 time.sleep(5)
@@ -25,6 +29,8 @@ financial_data = driver.find_element(By.TAG_NAME, "body").text
 
 # Close the browser
 driver.quit()
+
+
 
 # Create a new Word document and add the extracted text
 doc = Document()
@@ -41,9 +47,10 @@ for row_num, row_data in enumerate(financial_data.split('\n'), 1):
     ws.cell(row=row_num, column=1, value=row_data)
 
 # Save the Excel workbook
-wb.save('financial_data.xlsx')
+xlname = 'financial_data_2.xlsx'
+wb.save(xlname)
 
-print("Text has been copied and saved to 'financial_data.docx' and 'financial_data.xlsx'")
+print(f"Text has been copied and saved to 'financial_data.docx' and '{xlname}'")
 
 # Note: you may need to install openpyxl using: pip install selenium python-docx openpyxl
 
