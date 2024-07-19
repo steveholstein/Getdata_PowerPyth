@@ -6,6 +6,7 @@ from docx import Document
 from selenium.webdriver.common.by import By
 import openpyxl
 import time
+import random
 
 # Initialize Chrome with options, if needed
 options = Options()
@@ -16,7 +17,7 @@ driver = webdriver.Chrome(options=options) # You can also use other web drivers 
 
 
 # Example list of ASX codes
-asx_codes = ['CBA', 'NAB', 'WBC', 'ANZ']  # Add more ASX codes as needed
+asx_codes = ['BHP', 'NAB', 'ANZ', 'MQG', 'WDS']  # Add more ASX codes as needed
 
 # Create a new Word document
 doc = Document()
@@ -47,6 +48,10 @@ for code in asx_codes:
   # Navigate to the web page
   driver.get(url)
   time.sleep(5)  # Allow time for the page to load
+  # Generate a random sleep time between 5 and 20 seconds
+  sleep_time = random.uniform(5, 15)
+  #sleep_time = random.randint(5, 20)
+  time.sleep(sleep_time)  # Allow time for the page to load
 
   # Extract financial data
   financial_data = driver.find_element(By.TAG_NAME, "body").text
