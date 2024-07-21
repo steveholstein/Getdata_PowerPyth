@@ -17,7 +17,7 @@ driver = webdriver.Chrome(options=options) # You can also use other web drivers 
 
 
 # Example list of ASX codes
-asx_codes = ['BHP', 'NAB', 'ANZ', 'MQG', 'WDS']  # Add more ASX codes as needed
+asx_codes = ['BHP', 'CBA', 'CSL', 'NAB', 'WBC', 'ANZ', 'WES', 'MQG', 'FMG', 'NEM', 'GMG', 'SQ2', 'WDS', 'RMD', 'RIO', 'TLS', 'WOW', 'TCL', 'WTC', 'ALL', 'QBE', 'REA', 'STO', 'NWS', 'NWSLV', 'COL', 'AMC', 'COH', 'JHX', 'BXB', 'XRO', 'ORG', 'REH', 'URW', 'FPH', 'S32', 'SCG', 'CPU', 'SVW', 'NST', 'IAG', 'MEZ', 'PME', 'CAR', 'LNW', 'MIN', 'SHL', 'SOL', 'TLC', 'ASX', 'RHC', 'NXT', 'APA', 'SGP', 'AIA', 'MPL', 'PLS', 'QAN', 'TWE', 'EDV', 'AFI', 'BSL', 'ALU', 'ORI', 'TPG', 'VCX', 'MCY', 'CSC', 'SEK', 'IFT', 'YAL', 'GQG', 'ALD', 'GPT', 'MGR', 'WOR', 'EVN', 'DXS', 'ALX', 'CEN', 'ALQ', 'AGL', 'JBH', 'SPK', 'AZJ', 'ARG', 'QUB', 'WHC', 'BEN', 'CWY', 'SDF']  # Add more ASX codes as needed
 
 # Create a new Word document
 doc = Document()
