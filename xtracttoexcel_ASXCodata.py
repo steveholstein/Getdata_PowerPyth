@@ -18,9 +18,11 @@ driver = webdriver.Chrome(options=options) # You can also use other web drivers 
 
 # Example list of ASX codes
 asx_codes = ['LTM', 'TNE', 'LYC', 'CHC', 'EBO', 'NXG', 'IPL', 'HVN', 'TLX', 'VUK', 'NWL', 'VEA', 'ATM', 'A2M', 'AWC', 'IGO', 'PMV', 'CGF', 'CSR', 'FLT', 'PDN', 'IEL', 'MTS', 'BKW', 'BRG', 'NHC', 'SFR', 'BOQ', 'LLC', 'RWC', 'ANN', 'BPT', 'HUB', 'NIC', 'AUB', 'NHF', 'DMP', 'WEB', 'LOV', 'CIA', 'MGF', 'PRU', 'ARB', 'VNT', '360', 'NSR', 'DOW', 'CNU', 'SMR', 'BFL', 'SUL', 'ILU', 'AMP', 'ORA', 'PNI', 'HMC', 'APE', 'LTR', 'PXA', 'BWP', 'RGN', 'NEU', 'HDN', 'CLW', 'DEG', 'PPT', 'EMR', 'DRR', 'MAQ', 'BGL', 'NEC', 'PSI', 'GNE', 'MXT', 'FBU', 'RMS', 'SNZ', 'ABC', 'MFF', 'CDA', 'MP1', 'SGM', 'TUA', 'CIP', 'GMD', 'CRN', 'INA', 'GNC', 'LSF', 'CTD', 'CQR', 'SIG', 'DHG', 'ZIM', 'NUF', 'EVT', 'GOZ', 'DDR', 'BAP', 'GOR', 'AIZ', 'CMM', 'CU6', 'BOE', 'JLG', 'PNV', 'WLE', 'ASK', 'WAM', 'RDX', 'IPH', 'WPR', 'MAC', 'RED', 'REDNB', 'LIC', 'ZIP', 'SSR', 'GUD', 'IRE', 'MFG', 'IFL', 'JDO', 'WAF', 'CNI', 'DBI', 'DYL', 'AD8', 'SGR', 'MGH', 'TAH', 'SDR', 'BKI', 'KLS', 'NWH', 'KAR', 'BGA', 'RRL', 'ARF', 'ING', 'DTL', 'FRW', 'SLX', 'AUI', 'ADT', 'MND', 'ELD', 'APM', 'REG', 'MSB', 'HLI', 'MAD', 'LFS', 'NCK', 'TPW', 'MMS', 'RSG', 'OCL', 'IMD', 'LFG', 'PWH', 'WGX', 'AX1', 'DUI', 'DRO', 'CMW', 'SIQ', 'CKF', 'ABB', 'SKC', 'HLS', 'MRM', 'ABG', 'SGF', 'JIN', 'NGI', 'CCP', 'GEM', 'GTK', 'SNL', 'VSL', 'WA1', 'BGP', 'NXL', 'UOS', 'DXI', 'PRN', 'SPR', 'RPL', 'PGF', 'VUL', 'PL8', 'CQE', 'NAN', 'HSN', 'ERA', 'HGH', 'CTT', 'AAC', 'FPR', 'ASB', 'EQT', 'A4N', 'MAF', 'WGB', 'PFP', 'CIN', 'RFF', 'DJW', 'CBO']  # Add more ASX codes as needed
+#List1 'BHP', 'CBA', 'CSL', 'NAB', 'WBC', 'ANZ', 'WES', 'MQG', 'FMG', 'NEM', 'GMG', 'SQ2', 'WDS', 'RMD', 'RIO', 'TLS', 'WOW', 'TCL', 'WTC', 'ALL', 'QBE', 'REA', 'STO', 'NWS', 'NWSLV', 'COL', 'AMC', 'COH', 'JHX', 'BXB', 'XRO', 'ORG', 'REH', 'URW', 'FPH', 'S32', 'SCG', 'CPU', 'SVW'
+#List2 'LTM', 'TNE', 'LYC', 'CHC', 'EBO', 'NXG', 'IPL', 'HVN', 'TLX', 'VUK', 'NWL', 'VEA', 'ATM', 'A2M', 'AWC', 'IGO', 'PMV', 'CGF', 'CSR', 'FLT', 'PDN', 'IEL', 'MTS', 'BKW', 'BRG', 'NHC', 'SFR', 'BOQ', 'LLC', 'RWC', 'ANN', 'BPT', 'HUB', 'NIC', 'AUB', 'NHF', 'DMP', 'WEB', 'LOV', 'CIA', 'MGF', 'PRU', 'ARB', 'VNT', '360', 'NSR', 'DOW', 'CNU', 'SMR', 'BFL', 'SUL', 'ILU', 'AMP', 'ORA', 'PNI', 'HMC', 'APE', 'LTR', 'PXA', 'BWP', 'RGN', 'NEU', 'HDN', 'CLW', 'DEG', 'PPT', 'EMR', 'DRR', 'MAQ', 'BGL', 'NEC', 'PSI', 'GNE', 'MXT', 'FBU', 'RMS', 'SNZ', 'ABC', 'MFF', 'CDA', 'MP1', 'SGM', 'TUA', 'CIP', 'GMD', 'CRN', 'INA', 'GNC', 'LSF', 'CTD', 'CQR', 'SIG', 'DHG', 'ZIM', 'NUF', 'EVT', 'GOZ', 'DDR', 'BAP', 'GOR', 'AIZ', 'CMM', 'CU6', 'BOE', 'JLG', 'PNV', 'WLE', 'ASK', 'WAM', 'RDX', 'IPH', 'WPR', 'MAC', 'RED', 'REDNB', 'LIC', 'ZIP', 'SSR', 'GUD', 'IRE', 'MFG', 'IFL', 'JDO', 'WAF', 'CNI', 'DBI', 'DYL', 'AD8', 'SGR', 'MGH', 'TAH', 'SDR', 'BKI', 'KLS', 'NWH', 'KAR', 'BGA', 'RRL', 'ARF', 'ING', 'DTL', 'FRW', 'SLX', 'AUI', 'ADT', 'MND', 'ELD', 'APM', 'REG', 'MSB', 'HLI', 'MAD', 'LFS', 'NCK', 'TPW', 'MMS', 'RSG', 'OCL', 'IMD', 'LFG', 'PWH', 'WGX', 'AX1', 'DUI', 'DRO', 'CMW', 'SIQ', 'CKF', 'ABB', 'SKC', 'HLS', 'MRM', 'ABG', 'SGF', 'JIN', 'NGI', 'CCP', 'GEM', 'GTK', 'SNL', 'VSL', 'WA1', 'BGP', 'NXL', 'UOS', 'DXI', 'PRN', 'SPR', 'RPL', 'PGF', 'VUL', 'PL8', 'CQE', 'NAN', 'HSN', 'ERA', 'HGH', 'CTT', 'AAC', 'FPR', 'ASB', 'EQT', 'A4N', 'MAF', 'WGB', 'PFP', 'CIN', 'RFF', 'DJW', 'CBO'
 
 # Create a new Word document
-doc = Document()
+#doc = Document()
 
 # Create a new Excel workbook and get the active sheet
 wb = openpyxl.Workbook()
@@ -57,8 +59,8 @@ for code in asx_codes:
   financial_data = driver.find_element(By.TAG_NAME, "body").text
 
   # Add extracted text to Word document
-  doc.add_paragraph(f"ASX Code: {code}")
-  doc.add_paragraph(financial_data)
+  #doc.add_paragraph(f"ASX Code: {code}")
+  #doc.add_paragraph(financial_data)
 
   # Write extracted text to the Excel sheet
   write_to_new_column(ws, f"ASX Code: {code}\n{financial_data}")
@@ -67,7 +69,7 @@ for code in asx_codes:
 driver.quit()
 
 # Save the Word document
-doc.save('financial_data.docx')
+#doc.save('financial_data.docx')
 
 # Save the Excel workbook
 wb.save('financial_data.xlsx')

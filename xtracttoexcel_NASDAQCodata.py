@@ -17,7 +17,7 @@ driver = webdriver.Chrome(options=options) # You can also use other web drivers 
 
 
 # Example list of ASX codes
-asx_codes = ['LTM', 'TNE', 'LYC', 'CHC', 'EBO', 'NXG', 'IPL', 'HVN', 'TLX', 'VUK', 'NWL', 'VEA', 'ATM', 'A2M', 'AWC', 'IGO', 'PMV', 'CGF', 'CSR', 'FLT', 'PDN', 'IEL', 'MTS', 'BKW', 'BRG', 'NHC', 'SFR', 'BOQ', 'LLC', 'RWC', 'ANN', 'BPT', 'HUB', 'NIC', 'AUB', 'NHF', 'DMP', 'WEB', 'LOV', 'CIA', 'MGF', 'PRU', 'ARB', 'VNT', '360', 'NSR', 'DOW', 'CNU', 'SMR', 'BFL', 'SUL', 'ILU', 'AMP', 'ORA', 'PNI', 'HMC', 'APE', 'LTR', 'PXA', 'BWP', 'RGN', 'NEU', 'HDN', 'CLW', 'DEG', 'PPT', 'EMR', 'DRR', 'MAQ', 'BGL', 'NEC', 'PSI', 'GNE', 'MXT', 'FBU', 'RMS', 'SNZ', 'ABC', 'MFF', 'CDA', 'MP1', 'SGM', 'TUA', 'CIP', 'GMD', 'CRN', 'INA', 'GNC', 'LSF', 'CTD', 'CQR', 'SIG', 'DHG', 'ZIM', 'NUF', 'EVT', 'GOZ', 'DDR', 'BAP', 'GOR', 'AIZ', 'CMM', 'CU6', 'BOE', 'JLG', 'PNV', 'WLE', 'ASK', 'WAM', 'RDX', 'IPH', 'WPR', 'MAC', 'RED', 'REDNB', 'LIC', 'ZIP', 'SSR', 'GUD', 'IRE', 'MFG', 'IFL', 'JDO', 'WAF', 'CNI', 'DBI', 'DYL', 'AD8', 'SGR', 'MGH', 'TAH', 'SDR', 'BKI', 'KLS', 'NWH', 'KAR', 'BGA', 'RRL', 'ARF', 'ING', 'DTL', 'FRW', 'SLX', 'AUI', 'ADT', 'MND', 'ELD', 'APM', 'REG', 'MSB', 'HLI', 'MAD', 'LFS', 'NCK', 'TPW', 'MMS', 'RSG', 'OCL', 'IMD', 'LFG', 'PWH', 'WGX', 'AX1', 'DUI', 'DRO', 'CMW', 'SIQ', 'CKF', 'ABB', 'SKC', 'HLS', 'MRM', 'ABG', 'SGF', 'JIN', 'NGI', 'CCP', 'GEM', 'GTK', 'SNL', 'VSL', 'WA1', 'BGP', 'NXL', 'UOS', 'DXI', 'PRN', 'SPR', 'RPL', 'PGF', 'VUL', 'PL8', 'CQE', 'NAN', 'HSN', 'ERA', 'HGH', 'CTT', 'AAC', 'FPR', 'ASB', 'EQT', 'A4N', 'MAF', 'WGB', 'PFP', 'CIN', 'RFF', 'DJW', 'CBO']  # Add more ASX codes as needed
+NASDAQ_symbols = ['BAC', 'CVX', 'NFLX', 'AZN']  # Add more NASDAQ Symbols as needed
 
 # Create a new Word document
 doc = Document()
@@ -25,7 +25,7 @@ doc = Document()
 # Create a new Excel workbook and get the active sheet
 wb = openpyxl.Workbook()
 ws = wb.active
-ws.title = "Financial_Data"
+ws.title = "NASDAQ_FinancialData"
 
 
 # Function to write data to a new column in the Excel sheet
@@ -42,8 +42,8 @@ def write_to_new_column(sheet, data):
 
 
 # Iterate through each ASX code, extract financial data, and write to the document and workbook
-for code in asx_codes:
-  url = f"https://www.asx.com.au/markets/company/{code}"
+for symbol in NASDAQ_symbols:
+  url = f"https://www.nasdaq.com/market-activity/stocks/{symbol}"
 
   # Navigate to the web page
   driver.get(url)
@@ -57,11 +57,11 @@ for code in asx_codes:
   financial_data = driver.find_element(By.TAG_NAME, "body").text
 
   # Add extracted text to Word document
-  doc.add_paragraph(f"ASX Code: {code}")
+  doc.add_paragraph(f"NASDAQ Symbol: {symbol}")
   doc.add_paragraph(financial_data)
 
   # Write extracted text to the Excel sheet
-  write_to_new_column(ws, f"ASX Code: {code}\n{financial_data}")
+  write_to_new_column(ws, f"NASDAQ Symbol: {symbol}\n{financial_data}")
 
 # Close the browser
 driver.quit()
@@ -70,9 +70,9 @@ driver.quit()
 doc.save('financial_data.docx')
 
 # Save the Excel workbook
-wb.save('financial_data.xlsx')
+wb.save('NASDAQ_FinancialData.xlsx')
 
-print("Text has been copied and saved to 'financial_data.docx' and 'financial_data.xlsx'")
+print("Text has been copied and saved to 'financial_data.docx' and 'NASDAQ_FinancialData.xlsx'")
 # Note: you may need to install openpyxl using: pip install selenium python-docx openpyxl
 
 
